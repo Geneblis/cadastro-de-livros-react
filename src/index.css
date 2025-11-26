@@ -1,0 +1,188 @@
+html {
+  color-scheme: light dark;
+}
+
+html.theme-light {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: rgba(0,0,0,0.06);
+  --btn-shadow: 0 6px 18px rgba(37,99,235,0.12);
+
+  background: var(--bg);
+  color: var(--text);
+  color-scheme: light;
+}
+
+html.theme-dark {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --text: #e6eef6;
+  --muted: #9aa4b2;
+  --border: rgba(255,255,255,0.04);
+  --btn-shadow: 0 6px 18px rgba(0,0,0,0.5);
+
+  background: var(--bg);
+  color: var(--text);
+  color-scheme: dark;
+}
+
+html.theme-dark body,
+html.theme-dark #root {
+  background: var(--bg);
+  color: var(--text);
+}
+
+html.theme-light body,
+html.theme-light #root {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-container {
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.app-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:16px 20px;
+  border-bottom:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  backdrop-filter: blur(6px);
+}
+
+.app-header h1 {
+  margin:0;
+  font-size:18px;
+  letter-spacing:0.2px;
+}
+
+.btn.theme {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding:8px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+}
+.btn.theme:active { transform: translateY(1px) scale(.997); }
+.btn.theme[aria-pressed="true"] {
+  box-shadow: var(--btn-shadow);
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 80%, transparent));
+  color: var(--accent-contrast);
+  border-color: transparent;
+}
+
+.main {
+  padding: 18px;
+  flex:1;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.card, .new-book-form, .book-list {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+  border: 1px solid var(--border);
+  transition: background .2s ease, box-shadow .2s ease;
+}
+
+.theme-dark .card, .theme-dark .new-book-form, .theme-dark .book-list {
+  box-shadow: 0 3px 10px rgba(2,6,23,0.3);
+}
+
+.form-row {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.form-row label { display:flex; flex-direction:column; gap:6px; flex:1; font-size:14px; }
+.form-row input {
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 94%, transparent);
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+.form-row input:focus { outline:none; box-shadow: 0 6px 18px rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.18); }
+
+
+.buttons {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.btn {
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  border:0;
+  font-weight:600;
+  transition: transform .08s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.btn.add {
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 85%, black 10%));
+  color: var(--accent-contrast);
+  box-shadow: var(--btn-shadow);
+  border: 0;
+}
+
+.btn.neutral {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn.danger {
+  background: transparent;
+  border: 1px solid rgba(239,68,68,0.16);
+  color: var(--danger);
+}
+
+.btn.remove {
+  padding:6px 8px;
+  border-radius:8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--danger);
+}
+
+.book-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 8px;
+  border-bottom:1px solid var(--border);
+}
+.book-item .muted { font-size:13px; color:var(--muted); }
+
+.counters { margin-top:14px; display:flex; gap:18px; align-items:center; justify-content:flex-start; }
+
+.search-bar { margin-bottom:12px; }
+.search-bar input { width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--border); }
+
+.loading, .error, .empty { padding:12px; margin:8px 0; border-radius:8px; background: color-mix(in srgb, var(--card) 85%, transparent); border:1px dashed var(--border); }
+
+@media (max-width: 840px) {
+  .layout-grid { grid-template-columns: 1fr; }
+  .buttons { justify-content:stretch; }
+}
