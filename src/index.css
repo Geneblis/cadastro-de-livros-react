@@ -186,3 +186,21 @@ html.theme-light #root {
   .layout-grid { grid-template-columns: 1fr; }
   .buttons { justify-content:stretch; }
 }
+
+.detail-card { max-width: 900px; margin: 0 auto; }
+.detail-card h2 { margin: 0 0 8px 0; font-size: 20px; }
+.detail-card .muted { margin-bottom: 12px; color: var(--muted); font-size:14px; }
+.detail-desc { margin-top: 12px; }
+.detail-desc strong { display:block; margin-bottom:8px; font-weight:700; }
+.desc-text {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  color: var(--text);
+  background: color-mix(in srgb, var(--card) 98%, transparent);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.detail-actions { margin-top: 14px; display:flex; gap:10px; align-items:center; }
+.detail-actions .btn { padding:8px 12px; }

@@ -4,11 +4,13 @@ export default function NewBookForm(props) {
   var [title, setTitle] = useState("");
   var [author, setAuthor] = useState("");
   var [yearText, setYearText] = useState("");
+  var [description, setDescription] = useState("");
 
   function clearFields() {
     setTitle("");
     setAuthor("");
     setYearText("");
+    setDescription("");
   }
 
   function handleSubmit(e) {
@@ -23,7 +25,13 @@ export default function NewBookForm(props) {
       return;
     }
 
-    props.onAddBook({ title: trimmedTitle, author: trimmedAuthor, year: yearNumber });
+    props.onAddBook({
+      title: trimmedTitle,
+      author: trimmedAuthor,
+      year: yearNumber,
+      description: String(description || "").trim() //remove espaços extras simples.
+    });
+
     clearFields();
   }
 
@@ -42,6 +50,10 @@ export default function NewBookForm(props) {
         <label>
           Ano
           <input value={yearText} onChange={function (e) { setYearText(e.target.value); }} />
+        </label>
+        <label>
+          Descrição
+          <textarea value={description} onChange={function (e) { setDescription(e.target.value); }} rows={3} />
         </label>
       </div>
       <div className="form-actions">
