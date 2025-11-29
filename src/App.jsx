@@ -178,7 +178,7 @@ export default function App() {
           </section>
         </div>
       </main>
-      <footer className="app-footer" style={{padding:"12px",textAlign:"center",color:"#999"}}>© Seu Projeto</footer>
+      <footer className="app-footer" style={{ padding: "12px", textAlign: "center", color: "var(--muted)" }}> © Catalogo de Livros </footer>
     </div>
   );
 
