@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import NewBookForm from "./components/NewBookForm";
 import BookList from "./components/BookList";
 import Counters from "./components/Counters";
+import BookDetail from "./components/BookDetail";
 import useLocalStorage from "./hooks/useLocalStorage";
 
 export default function App() {
@@ -81,7 +83,8 @@ export default function App() {
       id: newId,
       title: String(payload.title).trim(),
       author: String(payload.author).trim(),
-      year: Number(payload.year)
+      year: Number(payload.year),
+      description: String(payload.description || "").trim()
     };
 
     setBooks(function (previousBooks) {
@@ -160,7 +163,7 @@ export default function App() {
     }
   }
 
-  return (
+  var appLayout = (
     <div className="app-container">
       <Header />
       <main className="main">
@@ -175,6 +178,16 @@ export default function App() {
           </section>
         </div>
       </main>
+      <footer className="app-footer" style={{padding:"12px",textAlign:"center",color:"#999"}}>© Seu Projeto</footer>
     </div>
+  );
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={appLayout} />
+        <Route path="/book/:id" element={<BookDetail books={books} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function BookItem(props) {
   var book = props.book;
@@ -11,7 +12,11 @@ export default function BookItem(props) {
   return (
     <li className="book-item" title={book.title}>
       <div>
-        <strong>{book.title}</strong>
+        <strong>
+          <Link to={`/book/${encodeURIComponent(book.id)}`} style={{color:"inherit", textDecoration:"none"}}>
+            {book.title}
+          </Link>
+        </strong>
         <div className="muted">{book.author} ({book.year})</div>
       </div>
       <div>

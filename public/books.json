@@ -1,5 +1,23 @@
 [
-  { "id": "1", "title": "Clean Code", "author": "Robert C. Martin", "year": 2008 },
-  { "id": "2", "title": "You Don't Know JS", "author": "Kyle Simpson", "year": 2015 },
-  { "id": "3", "title": "Refactoring", "author": "Martin Fowler", "year": 1999 }
+  {
+    "id": "1",
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "year": 2008,
+    "description": "Um guia prático para escrever código limpo, legível e sustentável. Cobertura de princípios, padrões e boas práticas para desenvolvedores."
+  },
+  {
+    "id": "2",
+    "title": "You Don't Know JS",
+    "author": "Kyle Simpson",
+    "year": 2015,
+    "description": "Série aprofundada sobre os mecanismos do JavaScript, ideal para quem quer entender o idioma além da superfície."
+  },
+  {
+    "id": "3",
+    "title": "Refactoring",
+    "author": "Martin Fowler",
+    "year": 1999,
+    "description": "Clássico sobre técnicas de refatoração: como melhorar a estrutura do código sem alterar seu comportamento externo."
+  }
 ]
