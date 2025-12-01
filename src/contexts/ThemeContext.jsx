@@ -64,6 +64,7 @@ export function ThemeProvider(props) {
     };
   }, [setTheme]);
 
+  //função para alternar o tema
   function toggleTheme() {
     setTheme(function (previous) {
       var next = "light";
@@ -76,6 +77,7 @@ export function ThemeProvider(props) {
     });
   }
 
+  //memoriza o valor do contexto
   var contextValue = useMemo(function () {
     return { theme: theme, toggleTheme: toggleTheme };
   }, [theme]);

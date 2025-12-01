@@ -51,7 +51,7 @@ export default function NewBookForm(props) {
           Ano
           <input value={yearText} onChange={function (e) { setYearText(e.target.value); }} />
         </label>
-        <label>
+        <label className="form-row">
           Descrição
           <textarea value={description} onChange={function (e) { setDescription(e.target.value); }} rows={3} />
         </label>

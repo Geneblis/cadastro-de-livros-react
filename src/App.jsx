@@ -15,7 +15,7 @@ export default function App() {
   var [searchQuery, setSearchQuery] = useLocalStorage("books_app_search", "");
   var [nextIdCounter, setNextIdCounter] = useState(1000);
 
-  useEffect(function () {
+  useEffect(function () { //carrega o site com os livros do arquivo books.json
     var isMounted = true;
 
     async function loadBooks() {
